@@ -1,0 +1,674 @@
+@import url("https://fonts.googleapis.com/css?family=El+Messiri&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "El Messiri", sans-serif;
+  font-weight: bold;
+}
+
+header {
+  height: 100vh;
+  background-attachment: fixed;
+  background-image: url(images/618502.jpg);
+  background-size: cover;
+  position: relative;
+  box-shadow: 2px 0 8px 2px black, -2px 0 5px 1px white;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7792366946778712) 60%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+nav ul {
+  display: flex;
+  padding: 10px;
+}
+
+header li {
+  list-style: none;
+  margin: 20px 40px;
+  font-size: 16pt;
+  position: relative;
+}
+
+header li a {
+  text-decoration: none;
+  color: #63c0ff;
+  display: block;
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s 0.3s linear;
+}
+
+header li:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0%;
+  background-color: #63c0ff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform-origin: left, center;
+  transition: height 0.3s linear;
+  z-index: 1;
+}
+
+header li:before {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 120%;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  border-top: 2px solid #63c0ff;
+  border-bottom: 2px solid #63c0ff;
+  transition: width 0.3s linear;
+  z-index: 1;
+}
+
+header li:hover:before {
+  width: 100%;
+}
+
+header li:hover:after {
+  height: 100%;
+}
+
+header li:hover a {
+  color: black;
+}
+
+.text_back {
+  position: absolute;
+  bottom: 50px;
+  right: 100px;
+  font-size: 50pt;
+  line-height: 1;
+  color: #63c0ff;
+  background-image: url(images/poster-kak.jpg);
+  background-size: cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text_front {
+  position: absolute;
+  bottom: 50px;
+  right: 100px;
+  font-size: 50pt;
+  line-height: 1;
+  color: #63c0ff;
+  mix-blend-mode: color;
+}
+
+header span {
+  font-size: 90pt;
+}
+
+.abaut_characters {
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-image: url(images/how-to-train-your-dragon-2.jpg);
+  display: flex;
+  box-shadow: 2px 0 8px 2px black, -2px 0 5px 1px white;
+}
+
+.characters_menu {
+  width: 200px;
+  height: 800px;
+  position: relative;
+}
+
+.characters_conteiner {
+  height: 800px;
+  flex-grow: 1;
+  position: relative;
+}
+
+.fab {
+  cursor: pointer;
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+}
+
+.tooltip {
+  color: #29b6f6;
+  font-size: 16pt;
+  padding: 20px 45px;
+  border-radius: 10px;
+  background-color: white;
+  position: absolute;
+  left: 30px;
+  bottom: 130px;
+  animation: tooltip_jump 1s linear infinite alternate;
+}
+
+.tooltip:after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 25px;
+  transform: skewY(-60deg) skewX(15deg) rotate(100deg);
+  background-color: white;
+  position: absolute;
+  left: 10px;
+  bottom: -7px;
+}
+
+.fab:hover .tooltip {
+  display: none;
+}
+
+@keyframes tooltip_jump {
+  0% {
+    transform: translateY(-30px);
+  }
+
+  100% {
+    transform: translateY(20px);
+  }
+}
+
+.fab-action-button {
+  width: 70px;
+  height: 70px;
+  background-color: #29b6f6;
+  border-radius: 50%;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 16pt;
+  padding-top: 20px;
+  position: relative;
+}
+
+.fab-action-button:before {
+  content: "";
+  display: box;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 3px #00a9f2, 0px 0px 8px 2px #a8d8ed;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.5s linear;
+}
+
+.fab:hover .fab-action-button {
+  color: white;
+}
+
+.fab:hover .fab-action-button:before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.fab-buttons__item {
+  width: 74px;
+  height: 74px;
+  margin-bottom: 10px;
+  background-color: #29b6f6;
+  border-radius: 50%;
+  border: 2px solid black;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  position: relative;
+}
+
+.fab-buttons {
+  display: none;
+  margin-bottom: 50px;
+}
+
+.fab:hover .fab-buttons {
+  display: block;
+}
+
+.fab:hover .fab-buttons__item {
+  animation: label_up 0.5s linear;
+}
+
+@keyframes label_up {
+  0% {
+    transform: scaleY(0.5) scaleX(0) translateY(40px);
+  }
+  50% {
+    transform: scaleY(1) scaleX(0.5) translateY(40px);
+  }
+  100% {
+    transform: scaleY(1) scaleX(1) translateY(0px);
+  }
+}
+
+.fab-buttons__item:before {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 30px;
+  padding: 0 10px;
+  background-color: black;
+  color: white;
+  position: absolute;
+  right: -130px;
+  bottom: 50%;
+  margin-bottom: -15px;
+  opacity: 0;
+  transform-origin: left center 0;
+  transform: scale(0);
+  transition: all 0.5s linear;
+}
+
+.fab-buttons__item:nth-of-type(1):before {
+  content: "Іккінг";
+}
+
+.fab-buttons__item:nth-of-type(2):before {
+  content: "Астрід";
+}
+
+.fab-buttons__item:nth-of-type(3):before {
+  content: "Забіяка";
+}
+
+.fab-buttons__item:nth-of-type(4):before {
+  content: "Вредіна";
+}
+
+.fab-buttons__item:hover {
+  box-shadow: 0px 0px 6px 2px black;
+}
+
+.fab-buttons__item:hover:before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.character {
+  width: 800px;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -400px;
+  background-color: #fff1e8;
+  z-index: 0;
+  box-shadow: 3px 3px 7px black;
+}
+
+.character img {
+  padding: 30px 15px;
+  margin: 30px;
+  border-bottom: 2px solid #29b6f6;
+  border-top: 2px solid #29b6f6;
+  float: left;
+}
+
+.character h2 {
+  margin: 10px;
+}
+
+.character p {
+  margin: 10px;
+}
+
+#Hiccup {
+  transform: rotate(-3deg);
+}
+#Hiccup:target {
+  animation: character_up 0.5s linear;
+  transform: rotate(0deg);
+  z-index: 1;
+}
+
+#Astrid {
+  transform: rotate(5deg);
+}
+#Astrid:target {
+  animation: character_up 0.5s linear;
+  transform: rotate(0deg);
+  z-index: 1;
+}
+#Gruffnut {
+  transform: rotate(-11deg);
+}
+#Gruffnut:target {
+  animation: character_up 0.5s linear;
+  transform: rotate(0deg);
+  z-index: 1;
+}
+#Spitelout {
+  transform: rotate(8deg);
+}
+#Spitelout:target {
+  animation: character_up 0.5s linear;
+
+  transform: rotate(0deg);
+  z-index: 1;
+}
+
+@keyframes character_up {
+  0% {
+    left: 50%;
+  }
+  50% {
+    left: 45%;
+  }
+  100% {
+    left: 50%;
+  }
+}
+
+.about_dragons {
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-image: url(images/19200626.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 30px;
+  box-shadow: 2px 0 8px 2px black, -2px 0 5px 1px white;
+}
+
+.accordion {
+  border: 2px solid #6b537c;
+  width: 800px;
+  margin: 0px auto;
+  background-image: linear-gradient(
+    to bottom right,
+    #eafc83 0%,
+    #9fc6f5 60%,
+    #3366ff 85%,
+    #1f3e9c 100%
+  );
+}
+
+.accordion ul {
+  list-style: none;
+}
+
+.accordion ul li {
+  position: relative;
+}
+
+.accordion_header {
+  height: 80px;
+  padding: 10px 25px;
+  cursor: pointer;
+  background: #6b537c;
+  border-top: 1px solid #9775af;
+  border-bottom: 1px solid #4f3d5b;
+  display: flex;
+  align-items: center;
+}
+
+.accordion_header h2 {
+  font-size: 30px;
+  color: #f4f4f4;
+  padding-left: 20px;
+}
+
+.accordion_header img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid #db6e5e;
+}
+
+.msg {
+  max-height: 0;
+  opacity: 0;
+  transform: translate(0, 50%);
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.accordion ul li input:checked ~ div.msg {
+  max-height: 800px;
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.msg p {
+  color: rgba(48, 69, 92, 0.8);
+  font-size: 18px;
+  padding: 10px 20px;
+}
+
+.msg img {
+  float: right;
+  padding: 10px 20px;
+}
+
+.accordion ul li input {
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 80px;
+  opacity: 0;
+}
+
+.accordion ul li span {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  display: block;
+  width: 9px;
+  height: 9px;
+}
+
+.accordion ul li span:before,
+.accordion ul li span:after {
+  content: "";
+  position: absolute;
+  display: block;
+  background-color: #eee;
+  width: 3px;
+  height: 9px;
+  transition: all 0.5s ease-in-out;
+}
+
+.accordion ul li span:before {
+  transform: translate(2px, 0) rotate(45deg);
+}
+.accordion ul li span:after {
+  transform: translate(-2px, 0) rotate(-45deg);
+}
+
+.accordion ul li input:checked ~ span:before {
+  transform: translate(-2px, 0) rotate(45deg);
+}
+.accordion ul li input:checked ~ span:after {
+  transform: translate(2px, 0) rotate(-45deg);
+}
+
+.about_film {
+  height: 100vh;
+  background-attachment: fixed;
+  display: flex;
+  background-image: url(images/poster-kak-priruchit-drakona.jpg);
+  background-size: cover;
+}
+
+.about_film input {
+  display: none;
+}
+
+.about_film label {
+  display: block;
+  box-shadow: 2px 0 8px 2px black, -2px 0 5px 1px white;
+  cursor: pointer;
+}
+
+.about_film div {
+  overflow: hidden;
+  width: 0;
+  background-color: rgba(209, 238, 255, 0.8);
+  transition: width 0.5s;
+}
+
+.about_film div img {
+  padding: 30px;
+}
+
+.about_film div p {
+  padding: 50px;
+  font-size: 16pt;
+}
+
+#data1:checked ~ div:nth-of-type(1) {
+  width: 100%;
+}
+
+#data2:checked ~ div:nth-of-type(2) {
+  width: 100%;
+}
+
+#data3:checked ~ div:nth-of-type(3) {
+  width: 100%;
+}
+
+div:nth-of-type(3) img,
+div:nth-of-type(5) img {
+  float: left;
+}
+
+div:nth-of-type(4) img {
+  float: right;
+}
+
+#data4:checked ~ div:nth-of-type(4) {
+  width: 100%;
+}
+
+#data5:checked ~ div:nth-of-type(5) {
+  width: 100%;
+}
+
+/*  */
+/*  */
+/*  */
+
+.modal-container {
+  height: 100vh;
+  background-image: url(./images/bg.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+
+  padding: 80px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.facts_list {
+  position: relative;
+}
+
+.facts_list h2 {
+  text-align: center;
+  color: white;
+  font-size: 60px;
+  backdrop-filter: blur(5px);
+  background-color: #63c0ff;
+  margin-bottom: 40px;
+}
+
+.facts_list ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 650px;
+}
+
+.facts_list ul li {
+  margin-bottom: 60px;
+}
+
+.modal-container a {
+  position: relative;
+  top: 0;
+  color: white;
+  font-size: 30px;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  background-color: #63c0ff;
+  padding: 20px 20px;
+  box-shadow: 0 10px 1px #16a2ff, 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.1s linear;
+  width: 300px;
+  display: inline-block;
+  text-align: center;
+}
+
+.modal-container a:hover {
+  top: 9px;
+  box-shadow: 0 1px #16a2ff, 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#modal-1,
+#modal-2,
+#modal-3,
+#modal-4 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 550px;
+  height: 550px;
+  border-radius: 10%;
+  color: #fff;
+  background-color: rgba(49, 122, 240, 0.95);
+  padding: 20px;
+  font-size: 22px;
+  transition: transform 0.5s ease, opacity 1s ease;
+  box-shadow: 4px 4px 20px 2px black;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+#modal-1:target,
+#modal-2:target,
+#modal-3:target,
+#modal-4:target {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+#modal-1 a,
+#modal-2 a,
+#modal-3 a,
+#modal-4 a {
+  float: right;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #ffffcd;
+  font-size: 20pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
